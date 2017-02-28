@@ -1,0 +1,33 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Tank1Turret : MonoBehaviour {
+    float speed = 0.5f;
+    public GameObject player;
+    public GameObject enemy;
+
+    public float targetAngle;
+    //bool isFinishRotate;
+
+    private Vector2 enemyPos, playerPos;
+    // Use this for initialization
+    void Start() {
+        //target = player.GetComponent<Transform>();
+    }
+
+    // Update is called once per frame
+    void Update() {
+        enemyPos = enemy.transform.position;
+        playerPos = player.transform.position;
+        targetAngle = GetAim(enemyPos, playerPos);
+        Debug.LogFormat("enemy:pos={0},player:pos={1},angle={2}", enemyPos, playerPos, targetAngle);
+        transform.rotation = Quaternion.Euler(0,0,180+targetAngle);
+        //transform.parent.gameObject.GetComponent<Tank1>().Shot();
+    }
+
+    public float GetAim(Vector2 p1, Vector2 p2) {
+        Vector2 a = new Vector2(1, 0);
+        Vector2 b = p2 - p1; // p1を原点に持ってくる
+        return Vector2.Angle(a, b);
+    }
+}

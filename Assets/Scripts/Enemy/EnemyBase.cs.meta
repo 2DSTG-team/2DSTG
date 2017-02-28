@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7a07ff0c94561484da829c216b985be6
+timeCreated: 1476801289
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - BulletPrefab: {fileID: 1000012414533332, guid: 72b3220c56077454da4f45539e55693d,
+      type: 2}
+  - PlayerObj: {fileID: 1000010542373292, guid: a5581faddef26466183df7908aa7cd86,
+      type: 2}
+  - player: {instanceID: 0}
+  - explosion: {fileID: 1000013006559560, guid: 51cbc294a60b74295b280994588319cc,
+      type: 2}
+  - textHpPrefab: {instanceID: 0}
+  - itemPrefab: {fileID: 1000013195717684, guid: 645a610a10ac04d6ca491d0750f8e5c5,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

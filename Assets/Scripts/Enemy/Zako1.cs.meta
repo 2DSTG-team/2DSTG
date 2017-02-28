@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: bc4d57272e22448b19c0fa21a27b0f2f
+timeCreated: 1476801314
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - BulletPrefab: {instanceID: 0}
+  - PlayerObj: {instanceID: 0}
+  - player: {instanceID: 0}
+  - explosion: {instanceID: 0}
+  - textHpPrefab: {instanceID: 0}
+  - itemPrefab: {fileID: 1000013195717684, guid: 645a610a10ac04d6ca491d0750f8e5c5,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
