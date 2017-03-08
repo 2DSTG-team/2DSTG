@@ -18,7 +18,7 @@ public class EnemyBase : MonoBehaviour {
     public int shotInterval;
     public Vector2 pos;
 
-    public virtual void Create(string type, float speed, int maxHP, int attack,int shotInterval = 70, bool isShot = true) {
+    public virtual void Create(string type, float speed, int maxHP, int attack, int shotInterval = 70, bool isShot = true) {
         this.type = type;
         this.speed = speed;
         this.attack = attack;
@@ -28,7 +28,7 @@ public class EnemyBase : MonoBehaviour {
         this.shotInterval = shotInterval;
     }
     public virtual void Create(string str) {
-        Debug.LogFormat(""+str);
+        Debug.LogFormat("" + str);
     }
 
     public void ItemMake() {
@@ -41,7 +41,7 @@ public class EnemyBase : MonoBehaviour {
     // Use this for initialization
     public virtual void Start() {
 
-    } 
+    }
 
     protected void Init() {
         PlayerObj = GameObject.FindGameObjectWithTag("Player");
@@ -49,7 +49,7 @@ public class EnemyBase : MonoBehaviour {
         explosion = Resources.Load("Prefabs/explosion_32") as GameObject;
         itemPrefab = Resources.Load("Prefabs/power_item") as GameObject;
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
     //public virtual void Update () {}
 }
