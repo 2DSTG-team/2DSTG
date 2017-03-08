@@ -1,4 +1,6 @@
-
-Zako1,80,20
-Tank,300,20
-FixedTurret,600,3
+name,freq,attack
+zako1,80,20
+zako2,80,20
+tank,270,20
+aircraftCarrier,300,20
+fixedTurret,600,3
