@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour {
     public static int kTankAllCount = 2;
@@ -13,25 +14,56 @@ public class EnemyController : MonoBehaviour {
         public Prefabs() {
             tank = new GameObject[kTankAllCount];
         }
-        public GameObject Zako1, Zako2,FixedTurret;
+        public GameObject Zako1, Zako2, FixedTurret;
         public GameObject[] tank;
 
     }
     public Prefabs prefabs = new Prefabs();
 
-    [System.Serializable]
-    public class Freq {
-        public Freq() {
-            zako1 = 80;
-            zako2 = 80;
-            tank = 300;
-            fixedTurret = 600;
-        }
-        public int zako1, zako2;
-        public int tank;
-        public int fixedTurret;
+    enum EnemyNumber {
+        Zako1,
+        Tank,
+        AircraftCarrier,
+        FixedTurret,
     }
-    Freq freq = new Freq();
+
+    //public class EnemyData_t {
+    //    public EnemyData_t(int freq, string name, int attack) {
+    //        this.freq = freq;
+    //        this.name = name;
+    //        this.attack = attack;
+    //    }
+    //    public int freq;
+    //    public string name;
+    //    public int attack;
+    //};
+    //public List<EnemyData_t> enemyData;
+
+    //public void EnemyAddList(int freq, string name, int attack) {
+    //    enemyData.Add(new EnemyData_t(freq, name, attack));
+    //}
+
+    public Dictionary<string, int> Freq = new Dictionary<string, int>();
+    public Dictionary<string, int> Attack = new Dictionary<string, int>();
+
+    public void AddEnemyData(string name,int freq,int attack) {
+        Freq.Add(name, freq);
+        Attack.Add(name, attack);
+    }
+
+    [System.Serializable]
+    //public class Freq {
+    //    public Freq() {
+    //        zako1 = 80;
+    //        zako2 = 80;
+    //        tank = 300;
+    //        fixedTurret = 600;
+    //    }
+    //    public int zako1, zako2;
+    //    public int tank;
+    //    public int fixedTurret;
+    //}
+    //Freq freq = new Freq();
 
     /// <summary>
     /// 敵が出現するときにどのような位置に出現するか
@@ -52,17 +84,28 @@ public class EnemyController : MonoBehaviour {
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         cnt = 0;
+        AddEnemyData("zako1", 80, 20);
+        AddEnemyData("zako2", 80, 20);
+        AddEnemyData("tank", 300, 20);
+        AddEnemyData("aircraftCarrier", 300, 20);
+        AddEnemyData("fixedTurret", 600, 3);
+
+        //EnemyAddList(80, "Zako1", 20);
+        //EnemyAddList(80, "Zako2", 20);
+        //EnemyAddList(300, "Tank", 20);
+        //EnemyAddList(300, "AircraftCarrier", 20);
+        //EnemyAddList(600, "FixedTurret", 3);
     }
 
     // Update is called once per frame
     void Update() {
-        freq_set();
+        //FreqSet();
         cnt++;
-        EncountZako1(freq.zako1,90,20);
+        EncountZako1(Freq["zako1"],90,Attack["zako1"]);
         //EncountZako2(freq.zako2);
-        EncountTank(freq.tank,0.5f,kTankAllCount,100,20);
+        EncountTank(Freq["tank"],0.5f,kTankAllCount,100,Attack["tank"]);
         if (player.power >= 2) {
-            EncountFixedBattery(freq.fixedTurret, 0.2f, 30,3);
+            EncountFixedBattery(Freq["fixedTurret"], 0.2f, 30,Attack["fixedTurret"]);
         }
     }
     #region EnemyEncout Func
@@ -171,19 +214,19 @@ public class EnemyController : MonoBehaviour {
     #endregion
 
 
-    void freq_set() {
+    void FreqSet() {
         switch (player.power) {
             case 1:
-                freq.zako1 = 80;
-                freq.tank = 330;
+                Freq["zako1"] = 80;
+                Freq["tank"] = 330;
                 break;
             case 2:
-                freq.zako1 = 85;
-                freq.tank = 280;
+                Freq["zako1"] = 70;
+                Freq["tank"] = 280;
                 break;
                 case 3:
-                freq.zako1 = 65;
-                freq.tank = 220;
+                Freq["zako1"] = 60;
+                Freq["tank"] = 230;
                 break;
         }
     }
