@@ -7,7 +7,7 @@ public class Tank1Turret : MonoBehaviour {
     public GameObject enemy;
     public Quaternion playerQ;
     public Quaternion enemyQ;
-    private Tank1 tank;
+    Tank1 tank;
 
     public float targetAngle;
     public float currentTurretAngle;
