@@ -17,6 +17,11 @@ public class Bullet : MonoBehaviour {
                 other.gameObject.GetComponent<Tank1>().HitBox("Normal");
                 Destroy(gameObject);
                 break;
+            case "AircraftCarrier":
+                other.gameObject.GetComponent<AircraftCarrier>().HitBox("Normal");
+                Destroy(gameObject);
+                break;
+                
 
             case "FixedBattery":
                 other.gameObject.GetComponent<FixedBattery>().HitBox("Normal");

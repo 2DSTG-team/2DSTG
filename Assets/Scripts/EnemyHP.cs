@@ -24,6 +24,10 @@ public class EnemyHP : MonoBehaviour {
                     //textHP.text = hp.ToString();
                     break;
                 }
+            case "AircraftCarrier": {
+                    var hp = EnemyObj.GetComponent<AircraftCarrier>().hp;
+                    break;
+                }
             case "FixedBattery": {
                     var hp = EnemyObj.GetComponent<FixedBattery>().hp;
                     //textHP.text = hp.ToString();
@@ -46,6 +50,10 @@ public class EnemyHP : MonoBehaviour {
             //   }
             case "Tank1": {
                     hp = EnemyObj.GetComponent<Tank1>().hp;
+                    break;
+                }
+            case "AircraftCarrier": {
+                    hp = EnemyObj.GetComponent<AircraftCarrier>().hp;
                     break;
                 }
             case "FixedBattery": {

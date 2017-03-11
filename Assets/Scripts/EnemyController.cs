@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour {
         public Prefabs() {
             tank = new GameObject[kTankAllCount];
         }
-        public GameObject Zako1, Zako2, FixedTurret;
+        public GameObject Zako1, Zako2, FixedTurret,AircraftCarrier;
         public GameObject[] tank;
 
     }
@@ -99,13 +99,14 @@ public class EnemyController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //FreqSet();
+        FreqSet();
         cnt++;
         EncountZako1(Freq["zako1"],90,Attack["zako1"]);
         //EncountZako2(freq.zako2);
         EncountTank(Freq["tank"],0.5f,kTankAllCount,100,Attack["tank"]);
+        EncountAircraftCarrier(Freq["aircraftCarrier"], 0.7f, 150, Attack["aircraftCarrier"]);
         if (player.power >= 2) {
-            EncountFixedBattery(Freq["fixedTurret"], 0.2f, 30,Attack["fixedTurret"]);
+          EncountFixedBattery(Freq["fixedTurret"], 0.2f, 30,Attack["fixedTurret"]);
         }
     }
     #region EnemyEncout Func
@@ -211,22 +212,44 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    void EncountAircraftCarrier(int freq, float speed, int shotInterval, int atk) {
+        var tempHP = 0;
+        if (cnt % freq == 0) {
+            var enemy1 = encountPosType.Random(prefabs.AircraftCarrier, -3.5f, 3.5f);
+
+            switch (player.power) {
+                case 1:
+                    tempHP = 700;
+                    break;
+                case 2:
+                    tempHP = 2000;
+                    break;
+                case 3:
+                    tempHP = 3000;
+                    break;
+            }
+            enemy1.GetComponent<AircraftCarrier>().Create("AircraftCarrier", speed, tempHP, atk, shotInterval);
+        }
+    }
     #endregion
 
 
     void FreqSet() {
         switch (player.power) {
             case 1:
-                Freq["zako1"] = 80;
-                Freq["tank"] = 330;
+                //Freq["zako1"] = 80;
+                //Freq["tank"] = 330;
+                Freq["aircraftCarrier"] = 300;
                 break;
             case 2:
-                Freq["zako1"] = 70;
-                Freq["tank"] = 280;
+                Freq["zako1"] =70;
+                Freq["tank"] =280;
+                Freq["aircraftCarrier"] = 250;
                 break;
                 case 3:
-                Freq["zako1"] = 60;
-                Freq["tank"] = 230;
+                Freq["zako1"] =60;
+                Freq["tank"] =230;
+                Freq["aircraftCarrier"] = 200;
                 break;
         }
     }
