@@ -5,7 +5,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
     public float timeScale=1.0f;
     public int shot_freq;
-    const int kSpeed = 3;
+    const int kShotSpeed = 6,kSpeed =4;
     int shotCnt = 0;
     public static int score;
     public GameObject bullet;
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour {
     void PowerSet() {
         if (score >= 200 && score < 300) {
             power = 2;
+
         } else if (score >= 300 && score < 800) {
             power = 3;
         }
@@ -78,30 +79,25 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space) && shotCnt % shot_freq == 0) {
             switch (power) {
                 case 1: {
-                        var obj1 = ShotIntantiate(0, 0);
-                        ShotVelocity(obj1, kSpeed);
+                        ShotVelocity(ShotIntantiate(0.1f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.1f, 0), kShotSpeed);
                         break;
                     }
                 case 2: {
-                        var obj1 = ShotIntantiate(0.18f, 0,150.0f);
-                        ShotVelocity(obj1, kSpeed);
-                        var obj2 = ShotIntantiate(0,0);
-                        ShotVelocity(obj2, kSpeed);
-                        var obj3 = ShotIntantiate(-0.18f, 0,210.0f);
-                        ShotVelocity(obj3, kSpeed);
+                        ShotVelocity(ShotIntantiate(0.18f, 0, 150.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.1f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.1f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.18f, 0, 210.0f), kSpeed);
                         break;
                     }
                 case 3: {
-                        var obj1 = ShotIntantiate(0.28f,0, 150.0f);
-                        ShotVelocity(obj1, kSpeed);
-                        var obj2 = ShotIntantiate(0.15f, 0);
-                        ShotVelocity(obj2, kSpeed);
-                        var obj3 = ShotIntantiate(0, 0);
-                        ShotVelocity(obj3, kSpeed);
-                        var obj4 = ShotIntantiate(-0.15f, 0);
-                        ShotVelocity(obj4, kSpeed);
-                        var obj5 = ShotIntantiate(-0.28f,0, 210.0f);
-                        ShotVelocity(obj5, kSpeed);
+                        ShotVelocity(ShotIntantiate(0.35f,0, 150.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.23f, 0, 160.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.15f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.15f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.23f, 0, 200f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.35f, 0, 210.0f), kShotSpeed);
                         break;
                     }
 
