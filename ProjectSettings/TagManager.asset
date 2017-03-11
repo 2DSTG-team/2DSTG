@@ -10,6 +10,7 @@ TagManager:
   - FixedBattery
   - FixedBatteryTurret
   - Enemy
+  - AircraftCarrier
   layers:
   - Default
   - TransparentFX
