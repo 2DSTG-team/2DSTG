@@ -244,12 +244,12 @@ public class EnemyController : MonoBehaviour {
             case 2:
                 Freq["zako1"] =70;
                 Freq["tank"] =280;
-                Freq["aircraftCarrier"] = 250;
+                Freq["aircraftCarrier"] = 290;
                 break;
                 case 3:
                 Freq["zako1"] =60;
                 Freq["tank"] =230;
-                Freq["aircraftCarrier"] = 200;
+                Freq["aircraftCarrier"] = 280;
                 break;
         }
     }

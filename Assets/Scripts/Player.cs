@@ -51,10 +51,10 @@ public class Player : MonoBehaviour {
     }
 
     void PowerSet() {
-        if (score >= 200 && score < 300) {
+        if (score >= 200 && score < 500) {
             power = 2;
 
-        } else if (score >= 300 && score < 800) {
+        } else if (score >= 500 && score < 800) {
             power = 3;
         }
     }
@@ -136,6 +136,7 @@ public class Player : MonoBehaviour {
                 HP -= 50;
                 break;
             case "FixedTurret":
+            case "AircraftCarrier":
                 HP -= 100;
                 break;
         }
