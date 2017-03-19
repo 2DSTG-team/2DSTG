@@ -24,19 +24,13 @@ public class Zako1: EnemyBase{
         debugShotInterval = shotInterval;
         if (start_cnt <= 0 && cnt % shotInterval == 0 && isShot) {
             switch (type) {
-                case "Zako1":
-                case "Zako2": {
+                case "Zako1":{
                         var bullet1 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 135)) as GameObject;
                         bullet1.GetComponent<EnemyBullet>().Create();
                         var bullet2 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180)) as GameObject;
                         bullet2.GetComponent<EnemyBullet>().Create();
                         var bullet3 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 215)) as GameObject;
                         bullet3.GetComponent<EnemyBullet>().Create();
-                        break;
-                    }
-                case "Tank1": {
-                        var bullet1 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180)) as GameObject;
-                        bullet1.GetComponent<EnemyBullet>().Create();
                         break;
                     }
             }

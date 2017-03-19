@@ -5,7 +5,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
     public float timeScale=1.0f;
     public int shot_freq;
-    const int kShotSpeed = 6,kSpeed =4;
+    const int kShotSpeed = 10,kSpeed =6;
     int shotCnt = 0;
     public static int score;
     public GameObject bullet;

@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour {
         EncountTank(Freq["tank"],0.5f,kTankAllCount,100,Attack["tank"]);
         EncountAircraftCarrier(Freq["aircraftCarrier"], 0.7f, 150, Attack["aircraftCarrier"]);
         if (player.power >= 2) {
-          EncountFixedBattery(Freq["fixedTurret"], 0.2f, 30,Attack["fixedTurret"]);
+          //EncountFixedBattery(Freq["fixedTurret"], 0.2f, 30,Attack["fixedTurret"]);
         }
     }
     #region EnemyEncout Func
@@ -239,17 +239,17 @@ public class EnemyController : MonoBehaviour {
             case 1:
                 //Freq["zako1"] = 80;
                 //Freq["tank"] = 330;
-                Freq["aircraftCarrier"] = 300;
+                Freq["aircraftCarrier"] = 400;
                 break;
             case 2:
                 Freq["zako1"] =70;
                 Freq["tank"] =280;
-                Freq["aircraftCarrier"] = 290;
+                Freq["aircraftCarrier"] = 380;
                 break;
                 case 3:
                 Freq["zako1"] =60;
                 Freq["tank"] =230;
-                Freq["aircraftCarrier"] = 280;
+                Freq["aircraftCarrier"] = 360;
                 break;
         }
     }
