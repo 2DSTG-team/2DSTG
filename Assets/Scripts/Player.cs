@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        shot_freq = 10;
+        shot_freq = 16;
         power = 1;
         score = 0;
         maxHP = 500;
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour {
     }
     //どれだけ離れた位置に弾を生成するか
     GameObject ShotIntantiate(float dx, float dy,float rotaion=180) {
-        GameObject Obj = (GameObject)Instantiate(bullet, new Vector2(transform.position.x+dx, transform.position.y+dy), Quaternion.Euler(0, 0, rotaion));
+        GameObject Obj = Instantiate(bullet, new Vector2(transform.position.x+dx, transform.position.y+dy), Quaternion.Euler(0, 0, rotaion));
         return Obj;
     }
     void ShotVelocity(GameObject obj,float speed){
