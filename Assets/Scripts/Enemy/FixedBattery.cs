@@ -27,7 +27,7 @@ public class FixedBattery : EnemyBase {
             player.ScoreUP();
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            ItemMake();
+            ItemMake(transform.position);
         }
         transform.position = pos;
     }

@@ -17,9 +17,6 @@ public class AircraftCarrier : EnemyBase {
         slider = Hpbar.GetComponent<Slider>();
         slider.maxValue = maxHP;
     }
-    public override void Create(string type, float speed, int maxHP, int attack, int shotInterval = 70, bool isShot = true) {
-        base.Create(type, speed, maxHP, attack, shotInterval, isShot);
-    }
 
     // Update is called once per frame
     void Update() {
@@ -34,7 +31,7 @@ public class AircraftCarrier : EnemyBase {
             player.ScoreUP();
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            ItemMake();
+            ItemMake(transform.position);
         }
         transform.position = pos;
     }
@@ -46,7 +43,7 @@ public class AircraftCarrier : EnemyBase {
     void Create() {
         var tempHP = 1;
         var plane = Instantiate(Plane, transform.position, Quaternion.identity);
-
+		plane.GetComponent<Zako1>().Create(speed + 1.0f, tempHP, 20, 80, true);
         switch (PlayerObj.GetComponent<Player>().power) {
             case 1:
                 tempHP = 50;
@@ -58,7 +55,6 @@ public class AircraftCarrier : EnemyBase {
                 tempHP = 250;
                 break;
         }
-        Plane.GetComponent<Zako1>().Create("Zako1", speed+1.0f, tempHP, 20, 80, true);
     }
 
     public void HitBox(string bulletType) {

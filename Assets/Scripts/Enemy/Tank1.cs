@@ -16,9 +16,6 @@ public class Tank1 : EnemyBase {
         slider = Hpbar.GetComponent<Slider>();
         slider.maxValue = maxHP;
     }
-    public override void Create(string type, float speed, int maxHP, int attack, int shotInterval = 70, bool isShot = true) {
-        base.Create(type, speed, maxHP, attack, shotInterval, isShot);
-    }
 
     // Update is called once per frame
     void Update() {
@@ -30,7 +27,7 @@ public class Tank1 : EnemyBase {
             player.ScoreUP();
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            ItemMake();
+            ItemMake(transform.position);
         }
         transform.position = pos;
     }
