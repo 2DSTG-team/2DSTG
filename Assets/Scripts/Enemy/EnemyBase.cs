@@ -9,7 +9,7 @@ public class EnemyBase : MonoBehaviour {
     //public GameObject textHpPrefab;
     protected GameObject itemPrefab;
 
-    public string type;
+    //public string type;
     public float speed;
     public int hp, maxHP;
     public int attack;
@@ -18,8 +18,8 @@ public class EnemyBase : MonoBehaviour {
     public int shotInterval;
     public Vector2 pos;
 
-    public virtual void Create(string type, float speed, int maxHP, int attack, int shotInterval = 70, bool isShot = true) {
-        this.type = type;
+    public virtual void Create(float speed, int maxHP, int attack, int shotInterval = 70, bool isShot = true) {
+        //this.type = type;
         this.speed = speed;
         this.attack = attack;
         this.maxHP = maxHP;
@@ -27,14 +27,11 @@ public class EnemyBase : MonoBehaviour {
 
         this.shotInterval = shotInterval;
     }
-    public virtual void Create(string str) {
-        Debug.LogFormat("" + str);
-    }
 
-    public void ItemMake() {
+    protected void ItemMake(Vector3 pos) {
         var num = Random.Range(0, 1 + 2);
         if (num == 0) {
-            Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            Instantiate(itemPrefab, pos, Quaternion.identity);
         }
     }
 
@@ -45,7 +42,6 @@ public class EnemyBase : MonoBehaviour {
 
     protected void Init() {
         PlayerObj = GameObject.FindGameObjectWithTag("Player");
-        //player = PlayerObj.GetComponent<Player>();
         explosion = Resources.Load("Prefabs/explosion_32") as GameObject;
         itemPrefab = Resources.Load("Prefabs/power_item") as GameObject;
     }
