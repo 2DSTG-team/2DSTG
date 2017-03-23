@@ -104,7 +104,7 @@ public class EnemyController : MonoBehaviour {
         EncountZako1(Freq["zako1"],90,Attack["zako1"]);
         //EncountZako2(freq.zako2);
         EncountTank(Freq["tank"],0.5f,kTankAllCount,100,Attack["tank"]);
-        EncountAircraftCarrier(Freq["aircraftCarrier"], 0.7f, 150, Attack["aircraftCarrier"]);
+        EncountAircraftCarrier(Freq["aircraftCarrier"], 0.2f, 150, Attack["aircraftCarrier"]);
         if (player.power >= 2) {
           //EncountFixedBattery(Freq["fixedTurret"], 0.2f, 30,Attack["fixedTurret"]);
         }
@@ -132,7 +132,7 @@ public class EnemyController : MonoBehaviour {
                     tempHP = 250;
                     break;
             }
-            enemy.GetComponent<Zako1>().Create("Zako1", speed, tempHP, atk,shotInterval, isShot);
+            enemy.GetComponent<Zako1>().Create(speed, tempHP, atk,shotInterval, isShot);
         }
     }
     /*void EncountZako2(int freq, float speed = 1.2f) {
@@ -187,8 +187,8 @@ public class EnemyController : MonoBehaviour {
             }
             //Debug.LogFormat("tank["+num+"]="+prefabs.tank[num]);
             //enemy1.GetComponent<Tank1>().Create("Tank" + num, speed, tempHP, atk, shotInterval);
-            enemy1.GetComponent<Tank1>().Create("Created Object");
-            enemy2.GetComponent<Tank1>().Create("Tank" + num, speed, tempHP, atk, shotInterval);
+            enemy1.GetComponent<Tank1>().Create(speed, tempHP, atk, shotInterval);
+            enemy2.GetComponent<Tank1>().Create(speed, tempHP, atk, shotInterval);
         }
     }
 
@@ -208,7 +208,7 @@ public class EnemyController : MonoBehaviour {
                     tempHP = 3000;
                     break;
             }
-            enemy1.GetComponent<FixedBattery>().Create("FixedBattery", speed, tempHP,atk, shotInterval);
+            enemy1.GetComponent<FixedBattery>().Create(speed, tempHP,atk, shotInterval);
         }
     }
 
@@ -222,13 +222,13 @@ public class EnemyController : MonoBehaviour {
                     tempHP = 700;
                     break;
                 case 2:
-                    tempHP = 2000;
+                    tempHP = 900;
                     break;
                 case 3:
-                    tempHP = 3000;
+                    tempHP = 1100;
                     break;
             }
-            enemy1.GetComponent<AircraftCarrier>().Create("AircraftCarrier", speed, tempHP, atk, shotInterval);
+            enemy1.GetComponent<AircraftCarrier>().Create(speed, tempHP, atk, shotInterval);
         }
     }
     #endregion
@@ -239,17 +239,17 @@ public class EnemyController : MonoBehaviour {
             case 1:
                 //Freq["zako1"] = 80;
                 //Freq["tank"] = 330;
-                Freq["aircraftCarrier"] = 400;
+                Freq["aircraftCarrier"] = 800;
                 break;
             case 2:
                 Freq["zako1"] =70;
                 Freq["tank"] =280;
-                Freq["aircraftCarrier"] = 380;
+                Freq["aircraftCarrier"] = 560;
                 break;
                 case 3:
                 Freq["zako1"] =60;
                 Freq["tank"] =230;
-                Freq["aircraftCarrier"] = 360;
+                Freq["aircraftCarrier"] = 520;
                 break;
         }
     }
