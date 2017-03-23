@@ -1,27 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Tank1Turret : MonoBehaviour {
+public class Tank1Turret : EnemyTurretBase {
     float speed = 0.5f;
-    public GameObject player;
     public GameObject enemy;
-    public Quaternion playerQ;
-    public Quaternion enemyQ;
     Tank1 tank;
 
-    public float targetAngle;
-    public float currentTurretAngle;
     float rotZ;
 
     float x, y;
     bool isOn;
     //bool isFinishRotate;
 
-    private Vector3 enemyPos, playerPos;
     // Use this for initialization
-    void Start() {
+    public override void Start() {
         tank = GetComponentInParent<Tank1>();
-        player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
     }
 
     public void Shot() {
@@ -66,9 +61,5 @@ public class Tank1Turret : MonoBehaviour {
         direction = direction / direction.magnitude;  // 後の計算のために大きさを1に統一
         float rad = Mathf.Atan2(direction.x, direction.y);
         return -Rad2Deg(rad);
-    }
-
-    float Rad2Deg(float rad) {
-        return targetAngle = rad * 180 / Mathf.PI;
     }
 }
