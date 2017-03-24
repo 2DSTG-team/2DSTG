@@ -14,7 +14,7 @@ public class Iten : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0,-10.0f*Time.deltaTime);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0,-50.0f*Time.deltaTime);
 	}
 
     void OnTriggerEnter2D(Collider2D other) {
