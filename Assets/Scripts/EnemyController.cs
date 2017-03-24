@@ -112,9 +112,11 @@ public class EnemyController : MonoBehaviour {
     #region EnemyEncout Func
     void EncountZako1(int freq, int shotInterval, int atk,float speed = 1.0f) {
         var tempHP = 0;
-        if (cnt % freq == 0) {
+        var random = 0.0f;
+        if (cnt % (freq + random) == 0) {
+            random = Random.Range(-20.0f, 20.0f);
             var enemy = encountPosType.Random(prefabs.Zako1, -3.5f, 3.5f);
-            var mNum = Random.Range(0, 1 + 1);
+            var mNum = Random.Range(0, 1 + 3);
             bool isShot = true;
             if (mNum == 0) {
                 isShot = false;
@@ -132,7 +134,8 @@ public class EnemyController : MonoBehaviour {
                     tempHP = 250;
                     break;
             }
-            enemy.GetComponent<Zako1>().Create(speed, tempHP, atk,shotInterval, isShot);
+            var rand = Random.Range(0, 3+1);
+            enemy.GetComponent<Zako1>().Create(speed, tempHP, atk,shotInterval,rand, isShot);
         }
     }
     /*void EncountZako2(int freq, float speed = 1.2f) {
@@ -191,7 +194,6 @@ public class EnemyController : MonoBehaviour {
             enemy2.GetComponent<Tank1>().Create(speed, tempHP, atk, shotInterval);
         }
     }
-
     void EncountFixedBattery(int freq, float speed, int shotInterval,int atk) {
         var tempHP = 0;
         if (cnt % freq == 0) {
@@ -211,10 +213,11 @@ public class EnemyController : MonoBehaviour {
             enemy1.GetComponent<FixedBattery>().Create(speed, tempHP,atk, shotInterval);
         }
     }
-
     void EncountAircraftCarrier(int freq, float speed, int shotInterval, int atk) {
         var tempHP = 0;
-        if (cnt % freq == 0) {
+        var random = 0.0f;
+        if (cnt % (freq+random) == 0) {
+            random = Random.Range(-20.0f, 20.0f);
             var enemy1 = encountPosType.Random(prefabs.AircraftCarrier, -3.5f, 3.5f);
 
             switch (player.power) {
