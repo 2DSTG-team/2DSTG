@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour {
-    public float kSpeed = 2.5f;
+    public float kSpeed = 0.5f;
     Player player;
     GameObject PlayerObj;
     /// <summary>
@@ -45,6 +45,7 @@ public class EnemyBullet : MonoBehaviour {
         var targetTag = other.gameObject.tag;
         if (targetTag == "Player") {
             player.HP -= atk;
+
             Destroy(gameObject);
         }
     }
