@@ -21,7 +21,7 @@ public class Zako1: EnemyBase{
     }
     public int debugShotInterval;
 
-    public override void Create(float speed, int maxHP, int attack, int shotInterval = 70,int shotType=0, bool isShot = true) {
+    public void Create(float speed, int maxHP, int attack, int shotInterval = 70,int shotType=0, bool isShot = true) {
         base.Create(speed, maxHP, attack, shotInterval, isShot);
         this.shotType =  shotType;
     }
@@ -29,19 +29,29 @@ public class Zako1: EnemyBase{
     void Shot() {
         debugShotInterval = shotInterval;
         if (start_cnt <= 0 && cnt % shotInterval == 0 && isShot) {
-            if (shotType == 0) {
-                var bullet1 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 135)) as GameObject;
-                bullet1.GetComponent<EnemyBullet>().Create();
-                var bullet2 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180)) as GameObject;
-                bullet2.GetComponent<EnemyBullet>().Create();
-                var bullet3 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 215)) as GameObject;
-                bullet3.GetComponent<EnemyBullet>().Create();
+            switch (shotType) {
+                case 0:
+                case 1:
+                case 2: {
+                        var bullet2 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180)) as GameObject;
+                        bullet2.GetComponent<EnemyBullet>().Create();
+                        break;
+                    }
+                case 3: {
+                        var bullet1 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 135)) as GameObject;
+                        bullet1.GetComponent<EnemyBullet>().Create();
+                        var bullet2 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180)) as GameObject;
+                        bullet2.GetComponent<EnemyBullet>().Create();
+                        var bullet3 = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 215)) as GameObject;
+                        bullet3.GetComponent<EnemyBullet>().Create();
+                        break;
+                    }
             }
         }
     }
 
     void Move() {
-        pos.y -= speed*Time.deltaTime;
+        pos.y -= speed * Time.deltaTime;
     }
 
     // Update is called once per frame
