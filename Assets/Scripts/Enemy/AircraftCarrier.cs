@@ -59,7 +59,7 @@ public class AircraftCarrier : EnemyBase {
 
     public void HitBox(string bulletType) {
         if (bulletType == "Normal") {
-            hp -= 40;
+            hp -= player.atk;
         }
     }
 
