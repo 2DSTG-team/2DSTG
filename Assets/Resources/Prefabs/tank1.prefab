@@ -152,7 +152,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011440931856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06955719, y: 0.92163205, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 4000011023335992}
@@ -275,16 +275,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bf96834fd304611a485cef0ccdd59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1000013472732362, guid: c3ffe509093ba46dc81fd3f37f856d33,
+  BulletPrefab: {fileID: 1000013472732362, guid: bcf5930692eca5a4ba8b0ba5268f6137,
     type: 2}
   speed: 0
   hp: 0
-  maxHP: 0
+  maxHP: 20000
   attack: 0
-  isShot: 0
+  isShot: 1
   start_cnt: 0
   cnt: 0
-  shotInterval: 0
+  shotInterval: 10
   pos: {x: 0, y: 0}
   Hpbar: {fileID: 1000014108218394}
 --- !u!114 &114000011792488390
