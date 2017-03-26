@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212000010087969498}
   - component: {fileID: 114000012417477478}
   - component: {fileID: 58000014214714290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: turret2
   m_TagString: FixedBatteryTurret
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 224000013978613536}
   - component: {fileID: 222000010959450030}
   - component: {fileID: 114000010869547570}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 224000011600083108}
   - component: {fileID: 222000013166106056}
   - component: {fileID: 114000010133673760}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224000010812846616}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 212000013459877168}
   - component: {fileID: 114000012516781092}
   - component: {fileID: 58000012039326904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: turret3
   m_TagString: FixedBatteryTurret
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 212000010762846776}
   - component: {fileID: 114000012473280618}
   - component: {fileID: 61000013957150892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fixedBattery
   m_TagString: FixedBattery
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 212000011559817786}
   - component: {fileID: 114000011692327806}
   - component: {fileID: 58000010765735448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: turret1
   m_TagString: FixedBatteryTurret
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 212000010143132580}
   - component: {fileID: 114000010661896552}
   - component: {fileID: 58000013155629852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: turret4
   m_TagString: FixedBatteryTurret
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224000013454106450}
   - component: {fileID: 114000010760743250}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1000013472732362, guid: c3ffe509093ba46dc81fd3f37f856d33,
     type: 2}
-  type: 
   speed: 0
   hp: 1000
   maxHP: 1000
