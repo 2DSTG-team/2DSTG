@@ -51,6 +51,18 @@ public class Player : MonoBehaviour {
     }
 
     void PowerSet() {
+        if (power == 1) {
+            atk=20;
+            shot_freq = 16;
+        } else if (power == 2) {
+            atk = 30;
+            shot_freq = 13;
+        } else if (power == 3) {
+            atk = 40;
+            shot_freq = 10;
+        }
+
+
         if (score >= 200 && score < 500) {
             power = 2;
 
@@ -79,25 +91,25 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space) && shotCnt % shot_freq == 0) {
             switch (power) {
                 case 1: {
-                        ShotVelocity(ShotIntantiate(0.1f, 0), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(-0.1f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.2f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.2f, 0), kShotSpeed);
                         break;
                     }
                 case 2: {
-                        ShotVelocity(ShotIntantiate(0.18f, 0, 150.0f), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(0.1f, 0), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(-0.1f, 0), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(-0.18f, 0, 210.0f), kSpeed);
+                        ShotVelocity(ShotIntantiate(0.3f, 0, 150.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.2f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.2f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.3f, 0, 210.0f), kSpeed);
                         break;
                     }
                 case 3: {
-                        ShotVelocity(ShotIntantiate(0.35f,0, 150.0f), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(0.23f, 0, 160.0f), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(0.15f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.5f,0, 150.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.5f, 0, 160.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(0.3f, 0), kShotSpeed);
                         ShotVelocity(ShotIntantiate(0, 0), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(-0.15f, 0), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(-0.23f, 0, 200f), kShotSpeed);
-                        ShotVelocity(ShotIntantiate(-0.35f, 0, 210.0f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.3f, 0), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.5f, 0, 200f), kShotSpeed);
+                        ShotVelocity(ShotIntantiate(-0.5f, 0, 210.0f), kShotSpeed);
                         break;
                     }
 
